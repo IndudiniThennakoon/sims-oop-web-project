@@ -12,7 +12,7 @@ import com.sims.configs.ConnectionProvider;
 import com.sims.models.User;
 import com.sims.services.interfaces.AuthServiceInterface;
 import com.sims.utils.QueryBuilder;
-import com.sims.utils.modelHelper;
+import com.sims.utils.ModelHelper;
 
 /**
  * This is the Auth Service class
@@ -32,7 +32,7 @@ public class AuthService implements AuthServiceInterface {
 			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"' AND password='"+password+"'");
 			
 			if (rSet != null) {
-				User newUser = modelHelper.mapResultSetToUser(rSet);
+				User newUser = ModelHelper.mapResultSetToUser(rSet);
 				user.add(newUser);
 			}
 			ConnectionProvider.close(con);

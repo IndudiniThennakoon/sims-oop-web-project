@@ -10,7 +10,7 @@ import com.sims.configs.ConnectionProvider;
 import com.sims.models.User;
 import com.sims.services.interfaces.UserServiceInterface;
 import com.sims.utils.QueryBuilder;
-import com.sims.utils.modelHelper;
+import com.sims.utils.ModelHelper;
 
 /**
  * This is the User Service class
@@ -30,7 +30,7 @@ public class UserService implements UserServiceInterface {
 			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"'");
 			
 			if (rSet != null) {
-				User newUser = modelHelper.mapResultSetToUser(rSet);
+				User newUser = ModelHelper.mapResultSetToUser(rSet);
 				user = newUser;
 			}
 			ConnectionProvider.close(con);
