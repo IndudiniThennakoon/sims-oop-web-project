@@ -1,170 +1,95 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Login | School Information Management System</title>
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<title>Sign in | School Information Management System</title>
+	<!-- Favicon -->
+	<link href="./resources/images/favicon.ico" rel="icon" />
+	<!-- FONTS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<!-- STYLE SHEETS -->
+	<link href="./resources/styling-libraries/bootstrap-4-css/bootstrap.min.css" rel="stylesheet" />
+	<link href="./resources/css/login.css" rel="stylesheet" />
 </head>
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-</style>
-</head>
 <body>
 
-<h2>Modal Login Form</h2>
+	<div class="container" id="container">
+	
+		<div class="form-container sign-in-container">
+			<form action="login-submit" method="POST">
+				<div class="header">Sign In</div>
+				<div class="social__media__container">
+					<a href="https://www.google.com/" target="_blank" class="social google">
+						<i class="fa-brands fa-google"></i>
+					</a>
+					<a href="https://www.facebook.com/" target="_blank" class="social facebook">
+						<i class="fa-brands fa-facebook"></i>
+					</a>
+				</div>
+				<span class="under__social">
+					<a href="#" class="link signup-link"><small>or sign in with account</small></a>
+				</span>
+				
+				<c:if test="${ errors != null }">
+					<div class="d-flex justify-content-center w-100 mt-2">
+						<div class="alert alert-danger mb-0 py-1 w-100" role="alert">
+						  <span>${errors[0]}</span>
+						</div>
+					</div>
+				</c:if>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+				<div class="button-input-group">
+					<div class="group input-group">
+						<input type="email" name="email" value="${email}" placeholder="Email" required/>
+					</div>
+					<div class="group input-group">
+						<input type="password" name="password" value="${password}" placeholder="Password" pattern=".{8,}" required/>
+					</div>
+					<div class="alert-text signup__alert">
+						<span class="help__text">At least 8 character</span>
+					</div>
+					<div class="form-link forgot">
+						<a href="#" class="login-link">Forgot your password?</a>
+					</div>
+					<div class="group button-group">
+						<button class="signin-btn" type="submit" name="submit">Sign in</button>
+					</div>
+				</div>
+			</form>
+		</div>
 
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Welcome!</h1>
+					<p>Enter your personal details and register with school name SIMS</p>
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+					<div class="group button-group">
+						<button class="ghost" id="signUp">Sign up</button>
+					</div>
+					<footer>
+						<p>School Information Management System</p>
+					</footer>
+				</div>
+			</div>
+		</div>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+	</div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
-
-<script type="text/javascript" src="./resources/js/main.js"></script>
+	<!--JAVASCRIPT FILES -->
+	<script type="text/javascript" src="./resources/styling-libraries/bootstrap-4-js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./resources/js/main.js"></script>
 
 </body>
 </html>
+
