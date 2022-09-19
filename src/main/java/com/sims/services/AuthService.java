@@ -5,33 +5,35 @@ package com.sims.services;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.sims.configs.ConnectionProvider;
 import com.sims.models.User;
-import com.sims.services.interfaces.UserServiceInterface;
+import com.sims.services.interfaces.AuthServiceInterface;
 import com.sims.utils.QueryBuilder;
 import com.sims.utils.ModelHelper;
 
 /**
- * This is the User Service class
+ * This is the Auth Service class
  * 
  * @author maneesh
  */
-public class UserService implements UserServiceInterface {
-
+public class AuthService implements AuthServiceInterface {
+	
 	@Override
-	public User getUserByEmail(String email) {
+	public List<User> userLoginByEmail(String email, String password) {
 		
-		User user = null;
+		ArrayList<User> user = new ArrayList<>();
 		Connection con = null;
 		
 		try {
 	        con = ConnectionProvider.getConnection();
-			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"'");
+			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"' AND password='"+password+"'");
 			
 			if (rSet != null) {
 				User newUser = ModelHelper.mapResultSetToUser(rSet);
-				user = newUser;
+				user.add(newUser);
 			}
 			ConnectionProvider.close(con);
 
@@ -41,5 +43,5 @@ public class UserService implements UserServiceInterface {
 				
 		return user;
 	}
-	
+
 }
