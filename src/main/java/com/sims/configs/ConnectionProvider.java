@@ -11,15 +11,15 @@ import java.sql.SQLException;
  * @author maneesh
  *
  */
-public class ConnectionProvider extends Config {
+public class ConnectionProvider {
     
     public static Connection getConnection() {
         
-        String mysqlUrl = getMySqlUrl();
-        String dbName = getDbName();
-        String dbUserName = getDbUserName();
-        String dbPassword = getDbPassword();
-        String driverName = getDriverName();
+        String mysqlUrl = Config.getMySqlUrl();
+        String dbName = Config.getDbName();
+        String dbUserName = Config.getDbUserName();
+        String dbPassword = Config.getDbPassword();
+        String driverName = Config.getDriverName();
         
         try {
             Class.forName(driverName);
@@ -27,9 +27,15 @@ public class ConnectionProvider extends Config {
             return con;
             
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("SQLException -" + e.getMessage());
+            e.printStackTrace();
             return null;
         }
+    }
+    
+    public static void close(Connection con) throws SQLException {
+    	if (con != null) {
+        	con.close();
+		}
     }
     
 }
