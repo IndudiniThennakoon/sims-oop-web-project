@@ -13,30 +13,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/manis/eclipse-workspace/sims-oop-web-project/external-libraries/javax.servlet-api-4.0.1.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/manis/eclipse-workspace/sims-oop-web-project/external-libraries/mysql-connector-java-8.0.30.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/manis/eclipse-workspace/sims-oop-web-project/external-libraries/servlet-api-4.0.0.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/manis/eclipse-workspace/sims-oop-web-project/external-libraries/jstl-1.2.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/manis/eclipse-workspace/sims-oop-web-project/external-libraries/jstl-api-1.2-rev-1.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.servlet-api-4.0.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jstl-api-1.2-rev-1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/servlet-api-4.0.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
