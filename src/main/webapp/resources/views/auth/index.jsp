@@ -14,11 +14,8 @@
 	<title>Sign in | School Information Management System</title>
 	<!-- Favicon -->
 	<link href="./resources/images/favicon.ico" rel="icon" />
-	<!-- FONTS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-	<!-- STYLE SHEETS -->
-	<link href="./resources/styling-libraries/bootstrap-4-css/bootstrap.min.css" rel="stylesheet" />
-	<link href="./resources/css/login.css" rel="stylesheet" />
+	
+    <jsp:include page="/resources/views/auth/components/styles.jsp" />
 </head>
 
 <body>
@@ -70,26 +67,26 @@
 
 		<div class="overlay-container">
 			<div class="overlay">
-				<div class="overlay-panel overlay-right">
-					<h1>Welcome!</h1>
-					<p>Enter your personal details and register with school name SIMS</p>
-
-					<div class="group button-group">
-						<button class="ghost" id="signUp">Sign up</button>
+				<div class="overlay-panel overlay-right text-dark">
+					<div class="logo">
+						<img src="./resources/images/school-logo.png">
 					</div>
+					<br>
+					<p>Enter your login credentials and log in to SIMS.</p>
+					<p>Please contact the School Registration Manager or Class Teacher if you do not have login access.</p>
 					<footer>
-						<p>School Information Management System</p>
+						<p><small>School Information Management System</small></p>
 					</footer>
 				</div>
 			</div>
 		</div>
 
 	</div>
+	
+    <jsp:include page="/resources/views/auth/components/footer.jsp" />
 
-	<!--JAVASCRIPT FILES -->
-	<script type="text/javascript" src="./resources/styling-libraries/bootstrap-4-js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./resources/js/main.js"></script>
-
+<jsp:include page="/resources/views/auth/components/scripts.jsp" />
+ 
 </body>
 </html>
 

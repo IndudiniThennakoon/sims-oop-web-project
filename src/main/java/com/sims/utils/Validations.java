@@ -3,6 +3,10 @@
  */
 package com.sims.utils;
 
+import java.util.List;
+
+import com.sims.models.User;
+
 /**
  * This is the Validations class
  * 
@@ -15,6 +19,14 @@ public class Validations {
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
+	}
+	
+	public static boolean isUserHasNulls(List<User> userDetails) {
+	    if (userDetails != null) {
+	        for(Object a : userDetails)
+	            if(a != null) return false;
+	    }
+	    return true;
 	}
 
 }
