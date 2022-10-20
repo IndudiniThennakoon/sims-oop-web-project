@@ -13,6 +13,7 @@ import com.sims.models.User;
 import com.sims.services.AuthService;
 import com.sims.services.ValidationService;
 import com.sims.services.interfaces.AuthServiceInterface;
+import com.sims.utils.Validations;
 
 /**
  * Servlet implementation class LoginServlet
@@ -57,6 +58,12 @@ public class LoginServlet extends HttpServlet {
 		try {
 			AuthServiceInterface authService = new AuthService();
 			List<User> userDetails = authService.userLoginByEmail(email, password);
+			
+			if (Validations.isUserHasNulls(userDetails) || userDetails == null || userDetails.isEmpty()) {
+				errors.add( "The Username or Password is incorrect..!" );
+				request.setAttribute("errors", errors);
+				request.getRequestDispatcher("login").forward(request, response);
+			}
 			//redirect - setAttribute
 			request.getSession().setAttribute("userDetails", userDetails);
 			
@@ -66,6 +73,7 @@ public class LoginServlet extends HttpServlet {
 
 		//redirect
 		response.sendRedirect(request.getContextPath() + "dashboard");
+		return;
 		
 //		RequestDispatcher dispatch = request.getRequestDispatcher("dashboard"); 
 //		dispatch.forward(request, response);

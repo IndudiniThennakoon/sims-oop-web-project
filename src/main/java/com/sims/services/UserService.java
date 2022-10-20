@@ -10,7 +10,6 @@ import com.sims.configs.ConnectionProvider;
 import com.sims.models.User;
 import com.sims.services.interfaces.UserServiceInterface;
 import com.sims.utils.QueryBuilder;
-import com.sims.utils.ModelHelper;
 
 /**
  * This is the User Service class
@@ -22,7 +21,7 @@ public class UserService implements UserServiceInterface {
 	@Override
 	public User getUserByEmail(String email) {
 		
-		User user = null;
+		User emailUser = null;
 		Connection con = null;
 		
 		try {
@@ -30,8 +29,10 @@ public class UserService implements UserServiceInterface {
 			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"'");
 			
 			if (rSet != null) {
-				User newUser = ModelHelper.mapResultSetToUser(rSet);
-				user = newUser;
+			    if (rSet.next()) {
+		            int id = rSet.getInt(1);
+		            emailUser = new User(id);
+			    }
 			}
 			ConnectionProvider.close(con);
 
@@ -39,7 +40,7 @@ public class UserService implements UserServiceInterface {
             e.printStackTrace();
         }
 				
-		return user;
+		return emailUser;
 	}
 	
 }
