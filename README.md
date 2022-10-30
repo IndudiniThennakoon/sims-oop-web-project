@@ -25,7 +25,7 @@
 
 ### 🏷️ Installation
 
-01.  Fork, Clone or Download this Repository.
+01.  Clone or Download this Repository.
 02.  Add Project Folder to Your Local PC `eclipse-workspace`. ( or Clone to directly to it)
 03.  Open Project in `Eclipse IDE`.
 04.  In IDE Go to `Window -> Show View -> Servers`.
