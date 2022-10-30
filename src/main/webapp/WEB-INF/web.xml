@@ -30,12 +30,18 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 <!-- # Dashboard page route path-->
    <servlet>
       <servlet-name>dashboard</servlet-name>
-      <jsp-file>/resources/views/dashboard.jsp</jsp-file>
+      <jsp-file>/resources/views/student-dashboard.jsp</jsp-file>
   </servlet>
-  <servlet-mapping>
+  
+  <!-- # Exam page route path-->
+   <servlet>
+      <servlet-name>exam</servlet-name>
+      <jsp-file>/resources/views/exam.jsp</jsp-file>
+  </servlet>
+ <!-- <servlet-mapping>
       <servlet-name>dashboard</servlet-name>
       <url-pattern>/dashboard</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
     
   <!-- TEACHER ROUTES  -->
   <servlet>
