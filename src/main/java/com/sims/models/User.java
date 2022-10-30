@@ -3,6 +3,12 @@
  */
 package com.sims.models;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+import com.sims.configs.ConnectionProvider;
+import com.sims.utils.QueryBuilder;
+
 /**
  * This is the User Model class
  * 
@@ -16,31 +22,45 @@ public class User {
 	private String email;
 	private String password;
 	private String nic;
-	private String profilePhoto;
-	private String userType;
-	private String emailVerified;
-	private String emailVerifyCode;
-	private String passwordResetCode;
-	private String createdAt;
-	private String updatedAt;
+	private String profile_photo;
+	private String user_type;
+	private String email_verified;
+	private String email_Verify_code;
+	private String password_reset_code;
+	private String created_at;
+	private String updated_at;
 	
-	public User(int id, String name, String email, String password, String nic, String profilePhoto, String userType,
-			String emailVerified, String emailVerifyCode, String passwordResetCode, String createdAt,
-			String updatedAt) {
-		
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.nic = nic;
-		this.profilePhoto = profilePhoto;
-		this.userType = userType;
-		this.emailVerified = emailVerified;
-		this.emailVerifyCode = emailVerifyCode;
-		this.passwordResetCode = passwordResetCode;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	} 
+	public User(int id) {
+	     super(); 
+	      
+	     Connection con = null;
+	     
+	     try {
+	         con = ConnectionProvider.getConnection();
+	         ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE id='"+id+"'");
+	         
+	         if (rSet != null) {  
+	            if (rSet.next()) {
+	                this.id = rSet.getInt(1);
+	                this.name = rSet.getString(2);
+	                this.email = rSet.getString(3);
+	                this.password = "";
+	                this.nic = rSet.getString(5);
+	                this.profile_photo = rSet.getString(6);
+	                this.user_type = rSet.getString(7);
+	                this.email_verified = rSet.getString(8);
+	                this.email_Verify_code = rSet.getString(9);
+	                this.password_reset_code = rSet.getString(10); 
+	                this.created_at = rSet.getString(11); 
+	                this.updated_at = rSet.getString(12); 
+	            } 
+	         }
+	          
+	     } catch (Exception e) {
+	         e.printStackTrace();
+	     } 
+	      
+	}
 
 	public int getId() {
 		return id;
@@ -63,31 +83,31 @@ public class User {
 	}
 
 	public String getProfilePhoto() {
-		return profilePhoto;
+		return profile_photo;
 	}
 
 	public String getUserType() {
-		return userType;
+		return user_type;
 	}
 
 	public String getEmailVerified() {
-		return emailVerified;
+		return email_verified;
 	}
 
 	public String getEmailVerifyCode() {
-		return emailVerifyCode;
+		return email_Verify_code;
 	}
 
 	public String getPasswordResetCode() {
-		return passwordResetCode;
+		return password_reset_code;
 	}
 
 	public String getCreatedAt() {
-		return createdAt;
+		return created_at;
 	}
 
 	public String getUpdatedAt() {
-		return updatedAt;
+		return updated_at;
 	}
 
 

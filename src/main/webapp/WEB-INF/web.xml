@@ -10,7 +10,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 <!-- # Login page route path -->
   <servlet>
       <servlet-name>login</servlet-name>
-      <jsp-file>/resources/views/login.jsp</jsp-file>
+      <jsp-file>/resources/views/auth/index.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
       <servlet-name>login</servlet-name>
@@ -42,5 +42,24 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
       <servlet-name>dashboard</servlet-name>
       <url-pattern>/dashboard</url-pattern>
   </servlet-mapping>-->
+    
+  <!-- TEACHER ROUTES  -->
+  <servlet>
+      <servlet-name>teacher-dashboard</servlet-name>
+      <jsp-file>/resources/views/teacher/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>teacher-dashboard</servlet-name>
+      <url-pattern>/teacher/dashboard</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>teacher-leave-request</servlet-name>
+      <jsp-file>/resources/views/teacher/request-leave.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>teacher-leave-request</servlet-name>
+      <url-pattern>/teacher/leave-requests/add</url-pattern>
+  </servlet-mapping>
     
 </web-app>

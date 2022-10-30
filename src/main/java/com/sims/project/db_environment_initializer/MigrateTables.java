@@ -9,6 +9,7 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
+import com.sims.project.tables.LeaveRequestTable;
 import com.sims.project.tables.UsersTable;
 
 /**
@@ -26,6 +27,7 @@ public class MigrateTables extends DatabaseEnvironment {
 
 		// List new table class here
 		new UsersTable(stmt);
+		new LeaveRequestTable(stmt);
 //		new UsersTable(stmt);
         
 	}

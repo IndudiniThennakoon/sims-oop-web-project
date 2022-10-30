@@ -8,11 +8,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.sims.configs.ConnectionProvider;
 import com.sims.models.User;
 import com.sims.services.interfaces.AuthServiceInterface;
 import com.sims.utils.QueryBuilder;
-import com.sims.utils.ModelHelper;
 
 /**
  * This is the Auth Service class
@@ -26,21 +27,31 @@ public class AuthService implements AuthServiceInterface {
 		
 		ArrayList<User> user = new ArrayList<>();
 		Connection con = null;
+		String emailUserPassword = null;
+		int userId = 0;
 		
 		try {
 	        con = ConnectionProvider.getConnection();
-			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"' AND password='"+password+"'");
+			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"'");
 			
 			if (rSet != null) {
-				User newUser = ModelHelper.mapResultSetToUser(rSet);
-				user.add(newUser);
+				
+				if (rSet.next()) {
+				    userId = rSet.getInt(1);
+					emailUserPassword = rSet.getString(4);
+				}
+				
+				if (emailUserPassword != null && BCrypt.checkpw(password, emailUserPassword)) {
+					User newUser = new User(userId);
+					user.add(newUser);
+				}
 			}
 			ConnectionProvider.close(con);
 
 		} catch (Exception e) {
             e.printStackTrace();
         }
-				
+		
 		return user;
 	}
 

@@ -26,7 +26,7 @@ public class QueryBuilder {
 	
 	public static ResultSet readData(Connection con, String query) {
         Statement stmt = null;
-        ResultSet rSet = null;
+        ResultSet rSet = null;  
         try {
             stmt = con.createStatement();
             rSet = stmt.executeQuery(query);
