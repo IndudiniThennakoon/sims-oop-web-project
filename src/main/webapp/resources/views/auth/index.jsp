@@ -14,6 +14,8 @@
 	<title>Sign in | School Information Management System</title>
 	<!-- Favicon -->
 	<link href="./resources/images/favicon.ico" rel="icon" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	
     <jsp:include page="/resources/views/auth/components/styles.jsp" />
 </head>
@@ -85,7 +87,7 @@
 	
     <jsp:include page="/resources/views/auth/components/footer.jsp" />
 
-<jsp:include page="/resources/views/auth/components/scripts.jsp" />
+	<jsp:include page="/resources/views/auth/components/scripts.jsp" />
  
 </body>
 </html>

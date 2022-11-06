@@ -6,8 +6,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <welcome-file>index.html</welcome-file>
     <welcome-file>/resources/views/index.jsp</welcome-file>
   </welcome-file-list>
-  
-<!-- # Login page route path -->
+
+<!-- # LOGIN ROUTES -->
   <servlet>
       <servlet-name>login</servlet-name>
       <jsp-file>/resources/views/auth/index.jsp</jsp-file>
@@ -17,14 +17,24 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
       <url-pattern>/login</url-pattern>
   </servlet-mapping>
   
-<!-- # Login form servlet route path -->
-   <servlet>
+<!-- # LOGIN SERVLET -->
+  <servlet>
       <servlet-name>login-submit</servlet-name>
       <servlet-class>com.sims.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
       <servlet-name>login-submit</servlet-name>
       <url-pattern>/login-submit</url-pattern>
+  </servlet-mapping>
+    
+<!-- # LOGOUT SERVLET -->
+  <servlet>
+      <servlet-name>logout</servlet-name>
+      <servlet-class>com.sims.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>logout</servlet-name>
+      <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   
 <!-- # Dashboard page route path-->
