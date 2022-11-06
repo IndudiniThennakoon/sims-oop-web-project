@@ -28,7 +28,6 @@ public class MigrateTables extends DatabaseEnvironment {
 		// List new table class here
 		new UsersTable(stmt);
 		new LeaveRequestTable(stmt);
-//		new UsersTable(stmt);
         
 	}
     

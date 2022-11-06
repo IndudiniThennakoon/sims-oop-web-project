@@ -41,6 +41,7 @@ public class AuthService implements AuthServiceInterface {
 					emailUserPassword = rSet.getString(4);
 				}
 				
+				// Check password with BCrypt
 				if (emailUserPassword != null && BCrypt.checkpw(password, emailUserPassword)) {
 					User newUser = new User(userId);
 					user.add(newUser);
