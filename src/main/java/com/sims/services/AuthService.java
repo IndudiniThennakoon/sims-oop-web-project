@@ -41,8 +41,7 @@ public class AuthService implements AuthServiceInterface {
 				
 				// Check password with BCrypt
 				if (emailUserPassword != null && BCrypt.checkpw(password, emailUserPassword)) {
-					User newUser = new User(userId);
-					user = newUser;
+					user = new User(userId);
 				}
 			}
 			ConnectionProvider.close(con);
