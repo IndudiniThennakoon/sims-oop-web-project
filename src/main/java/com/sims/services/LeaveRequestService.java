@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,13 +80,14 @@ public class LeaveRequestService implements LeaveRequestInterface {
          connection = ConnectionProvider.getConnection();
          preparedStatement = connection
                .prepareStatement(
-                     "UPDATE `leave_requests` SET `date`=?,`days_count`=?,`reason`=?,`status` = ? , `cancel_reason`= ? WHERE `id` = ?");
+                     "UPDATE `leave_requests` SET `date`=?,`days_count`=?,`reason`=?,`status` = ? , `cancel_reason`= ?, `updated_at` = ? WHERE `id` = ?");
          preparedStatement.setString(1, leave_req.getDate());
          preparedStatement.setString(2, leave_req.getDays_count());
          preparedStatement.setString(3, leave_req.getReason());
          preparedStatement.setString(4, leave_req.getStatus());
          preparedStatement.setString(5, leave_req.getCancel_reason());
-         preparedStatement.setInt(6, leave_req.getId());
+         preparedStatement.setString(6, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+         preparedStatement.setInt(7, leave_req.getId());
          preparedStatement.executeUpdate();
 
          log.log(Level.INFO, "==================== SQL EXECUTED SUCCESSFULLY =============================");

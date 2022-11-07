@@ -34,8 +34,7 @@
 						<div class="col">
 							<h3 class="page-title">My Leave List</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a
-									href="teacher/manage-leave-requests">Manage Leaves</a></li>
+								<li class="breadcrumb-item"><i class="fa fa-home"></i> <a href="/teacher/dashboard">Dashboard</a></li>
 								<li class="breadcrumb-item active">My Leave List</li>
 							</ul>
 						</div>

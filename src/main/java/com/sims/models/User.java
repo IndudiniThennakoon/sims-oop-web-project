@@ -64,53 +64,101 @@ public class User {
 	      
 	}
 
-	public int getId() {
-		return id;
-	}
+   public int getId() {
+      return id;
+   }
 
-	public String getName() {
-		return name;
-	}
+   public void setId(int id) {
+      this.id = id;
+   }
 
-	public String getEmail() {
-		return email;
-	}
+   public String getName() {
+      return name;
+   }
 
-	public String getPassword() {
-		return password;
-	}
+   public void setName(String name) {
+      this.name = name;
+   }
 
-	public String getNic() {
-		return nic;
-	}
+   public String getEmail() {
+      return email;
+   }
 
-	public String getProfilePhoto() {
-		return profile_photo;
-	}
+   public void setEmail(String email) {
+      this.email = email;
+   }
 
-	public String getUserType() {
-		return user_type;
-	}
+   public String getPassword() {
+      return password;
+   }
 
-	public String getEmailVerified() {
-		return email_verified;
-	}
+   public void setPassword(String password) {
+      this.password = password;
+   }
 
-	public String getEmailVerifyCode() {
-		return email_Verify_code;
-	}
+   public String getNic() {
+      return nic;
+   }
 
-	public String getPasswordResetCode() {
-		return password_reset_code;
-	}
+   public void setNic(String nic) {
+      this.nic = nic;
+   }
 
-	public String getCreatedAt() {
-		return created_at;
-	}
+   public String getProfile_photo() {
+      return profile_photo;
+   }
 
-	public String getUpdatedAt() {
-		return updated_at;
-	}
+   public void setProfile_photo(String profile_photo) {
+      this.profile_photo = profile_photo;
+   }
 
+   public String getUser_type() {
+      return user_type;
+   }
+
+   public void setUser_type(String user_type) {
+      this.user_type = user_type;
+   }
+
+   public String getEmail_verified() {
+      return email_verified;
+   }
+
+   public void setEmail_verified(String email_verified) {
+      this.email_verified = email_verified;
+   }
+
+   public String getEmail_Verify_code() {
+      return email_Verify_code;
+   }
+
+   public void setEmail_Verify_code(String email_Verify_code) {
+      this.email_Verify_code = email_Verify_code;
+   }
+
+   public String getPassword_reset_code() {
+      return password_reset_code;
+   }
+
+   public void setPassword_reset_code(String password_reset_code) {
+      this.password_reset_code = password_reset_code;
+   }
+
+   public String getCreated_at() {
+      return created_at;
+   }
+
+   public void setCreated_at(String created_at) {
+      this.created_at = created_at;
+   }
+
+   public String getUpdated_at() {
+      return updated_at;
+   }
+
+   public void setUpdated_at(String updated_at) {
+      this.updated_at = updated_at;
+   }
+ 
 
 }

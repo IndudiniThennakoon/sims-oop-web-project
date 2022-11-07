@@ -39,7 +39,7 @@ public class LeaveRequestServlet extends HttpServlet {
     *      response)
     */
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
+
       boolean ajax = "XMLHttpRequest".equals(request.getHeader("X-Requested-With"));
       String action = request.getServletPath();
       String path_info = request.getPathInfo() == null ? action : request.getPathInfo();
@@ -58,7 +58,7 @@ public class LeaveRequestServlet extends HttpServlet {
 
                   request.setAttribute("LeaveRequestList", LeaveRequestList);
                   RequestDispatcher dispatcher = getServletContext()
-                        .getRequestDispatcher("/resources/views/teacher/manage-leave-request.jsp");
+                        .getRequestDispatcher("/resources/views/teacher/leaveRequests/index.jsp");
                   dispatcher.forward(request, response);
                   break;
                case "/add":
@@ -78,19 +78,21 @@ public class LeaveRequestServlet extends HttpServlet {
       }
    }
 
-   private void doCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/resources/views/teacher/request-leave.jsp");
+   private void doCreate(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      RequestDispatcher dispatcher = getServletContext()
+            .getRequestDispatcher("/resources/views/teacher/leaveRequests/create.jsp");
       dispatcher.forward(request, response);
    }
 
    private void doEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       log("===================LEAVE MANAGER LOG: EDIT START============================");
-      //   TODO: validate GET parameter leave is exists or redirect to safe page   
-      int leave_id =  Integer.parseInt(request.getParameter("leave"));
+      // TODO: validate GET parameter leave is exists or redirect to safe page
+      int leave_id = Integer.parseInt(request.getParameter("leave"));
       log("Leave_id:" + request.getParameter("leave"));
       LeaveRequest RequestLeave = new LeaveRequest(leave_id);
       request.getSession().setAttribute("leaveRequest", RequestLeave);
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/views/teacher/edit-leave.jsp");
+      RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/views/teacher/leaveRequests/edit.jsp");
       dispatcher.forward(request, response);
 
       log("====================LEAVE MANAGER LOG: EDIT END=============================");
@@ -100,14 +102,18 @@ public class LeaveRequestServlet extends HttpServlet {
     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
     *      response)
     */
-   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
       // TODO Auto-generated method stub
       log("===================LEAVE MANAGER LOG: doPost START============================");
-      log("=================== REQUEST _METHOD: "+ request.getParameter("_method"));
-       
-      switch (request.getParameter("_method")) {
-         case "put": 
-            doPut(request,response);
+
+      String _METHOD = request.getParameter("_method") == null ? request.getMethod().toLowerCase()
+            : request.getParameter("_method").toLowerCase();
+
+      log("=================== REQUEST _METHOD: " + _METHOD);
+      switch (_METHOD) {
+         case "put":
+            doPut(request, response);
             break;
          default:
             List<String> errors = new ArrayList<>();
@@ -142,25 +148,25 @@ public class LeaveRequestServlet extends HttpServlet {
                // request.setAttribute("errors", errors);
                request.getSession().setAttribute("errors", errors);
             } finally {
-               log("======================REDIRECTING============================="); 
-               response.sendRedirect(request.getContextPath() + "leave-requests/add"); 
-            };
+               log("======================REDIRECTING=============================");
+               response.sendRedirect(request.getContextPath() + "leave-requests/add");
+            }            
             break;
       }
 
       log("====================LEAVE MANAGER LOG: doPost END=============================");
    }
-   
+
    @Override
    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // TODO Auto-generated method stub
       List<String> errors = new ArrayList<>();
-      
+
       try {
-         int leave_id =  Integer.parseInt(request.getParameter("leave"));
+         int leave_id = Integer.parseInt(request.getParameter("leave"));
          log("Leave_id:" + request.getParameter("leave"));
          LeaveRequest RequestLeave = new LeaveRequest(leave_id);
- 
+
          RequestLeave.setDate(request.getParameter("date"));
          RequestLeave.setDays_count(request.getParameter("days_count"));
          RequestLeave.setReason(request.getParameter("reason"));
@@ -188,8 +194,8 @@ public class LeaveRequestServlet extends HttpServlet {
          // request.setAttribute("errors", errors);
          request.getSession().setAttribute("errors", errors);
       } finally {
-         log("======================REDIRECTING============================="); 
-         response.sendRedirect(request.getContextPath() + "leave-requests/edit?leave="+ request.getParameter("leave")); 
+         log("======================REDIRECTING=============================");
+         response.sendRedirect(request.getContextPath() + "leave-requests/edit?leave=" + request.getParameter("leave"));
       }
    }
 
