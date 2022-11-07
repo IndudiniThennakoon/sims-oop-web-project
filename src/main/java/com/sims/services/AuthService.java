@@ -5,8 +5,6 @@ package com.sims.services;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -23,16 +21,16 @@ import com.sims.utils.QueryBuilder;
 public class AuthService implements AuthServiceInterface {
 	
 	@Override
-	public List<User> userLoginByEmail(String email, String password) {
+	public User userLoginByEmail(String email, String password) {
 		
-		ArrayList<User> user = new ArrayList<>();
+	    User user = new User();
 		Connection con = null;
 		String emailUserPassword = null;
 		int userId = 0;
 		
 		try {
 	        con = ConnectionProvider.getConnection();
-			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='"+email+"'");
+			ResultSet rSet = QueryBuilder.readData(con, "SELECT * FROM users WHERE email='" + email + "'");
 			
 			if (rSet != null) {
 				
@@ -44,7 +42,7 @@ public class AuthService implements AuthServiceInterface {
 				// Check password with BCrypt
 				if (emailUserPassword != null && BCrypt.checkpw(password, emailUserPassword)) {
 					User newUser = new User(userId);
-					user.add(newUser);
+					user = newUser;
 				}
 			}
 			ConnectionProvider.close(con);
