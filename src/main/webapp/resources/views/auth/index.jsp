@@ -25,7 +25,7 @@
 	<div class="container" id="container">
 	
 		<div class="form-container sign-in-container">
-			<form action="login-submit" method="POST">
+			<form action="/login" method="POST">
 				<div class="header">Sign In</div>
 				<div class="social__media__container">
 					<a href="https://www.google.com/" target="_blank" class="social google">

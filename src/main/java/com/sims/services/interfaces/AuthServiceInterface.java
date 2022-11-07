@@ -3,8 +3,6 @@
  */
 package com.sims.services.interfaces;
 
-import java.util.List;
-
 import com.sims.models.User;
 
 /**
@@ -20,6 +18,6 @@ public interface AuthServiceInterface {
 	 * @param password
 	 * @return List<User>
 	 */
-	public List<User> userLoginByEmail(String email, String password);
+	public User userLoginByEmail(String email, String password);
 	
 }
