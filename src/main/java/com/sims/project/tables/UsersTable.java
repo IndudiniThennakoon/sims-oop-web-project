@@ -19,7 +19,7 @@ public class UsersTable {
     	
         try {
             stmt.executeUpdate(
-                  "CREATE TABLE " + tableName + "("
+                  "CREATE TABLE IF NOT EXISTS " + tableName + "("
                   + " id int(11) unsigned NOT NULL AUTO_INCREMENT, "
                   + " name varchar(100) NOT NULL, "
                   + " email varchar(100) NOT NULL, "
