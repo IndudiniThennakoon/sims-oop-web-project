@@ -19,7 +19,7 @@ public class LeaveRequestTable {
     	
         try {
             stmt.executeUpdate(
-                    "CREATE TABLE `leave_requests` ("
+                    "CREATE TABLE IF NOT EXISTS " + tableName + "("
                     + " `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,"
                     + " `user_id` bigint(20) unsigned NOT NULL,"
                     + " `date` date NOT NULL,"
