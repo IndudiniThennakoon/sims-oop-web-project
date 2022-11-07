@@ -36,7 +36,7 @@ hs_err_pid*
 ### So you have to manually fix one by one that errors: 🔴 If you uncomment the following lines!!
 
 # # Eclipse
-# .classpath
+.classpath
 # .project
 # .settings/
 
@@ -46,3 +46,4 @@ hs_err_pid*
 # *.iws
 #==================================================================================================
 /.idea
+/.classpath

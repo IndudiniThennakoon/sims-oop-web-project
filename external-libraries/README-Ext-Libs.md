@@ -1,5 +1,5 @@
 ======================================================================================================================
-JAR File: jakarta.servlet.jsp.jstl-api
+JAR File: jakarta.servlet.jsp.jstl-api * removed
   
 * Jakarta Server Pages defines a template engine for web applications that supports mixing of textual content (including HTML and XML) with custom tags, expression language, and embedded Java code, that gets compiled into a Jakarta Servlet.
 
@@ -27,7 +27,7 @@ JAR File: jstl-api
 
 
 ======================================================================================================================
-JAR File: junit
+JAR File: junit * removed
 
 * JUnit is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks.
 
@@ -35,7 +35,9 @@ JAR File: junit
 ==================================
 Added files to: WEB-INF/lib
 
+gson-2.10.jar
 javax.servlet-api-4.0.1.jar
+jBCrypt-0.4.3.jar
 jstl-1.2.jar
 jstl-api-1.2-rev-1.jar
 mysql-connector-java-8.0.30.jar
