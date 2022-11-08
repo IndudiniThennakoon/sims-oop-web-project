@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet {
 		   // Validate and get user by email and password
 			AuthServiceInterface authService = new AuthService();
 			User user = authService.userLoginByEmail(email, password);
-			String userType = user.getUser_type();
+			String userType = user.getType();
 			
 			// If user not found then redirect back to login with errors
 			if (user == null || user.getId() <= 0) {
