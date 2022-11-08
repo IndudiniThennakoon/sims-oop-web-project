@@ -1,4 +1,4 @@
-${user == null || user.user_type != "teacher" ? "<script>location.href = '/logout'</script>" : ""}
+${user == null || user.type != "teacher" ? "<script>location.href = '/logout'</script>" : ""}
 <div class="header">
 
 	<div class="header-left">
