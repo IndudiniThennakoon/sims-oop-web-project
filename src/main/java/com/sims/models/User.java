@@ -30,7 +30,9 @@ public class User {
 	private String created_at;
 	private String updated_at;
 	
-	public User() {}
+	public User() {
+	   super();
+	}
 	
 	public User(int id) {
 	     super(); 

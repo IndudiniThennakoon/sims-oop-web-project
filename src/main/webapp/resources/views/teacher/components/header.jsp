@@ -1,4 +1,8 @@
+
+<!-- ==================================================================================== -->
+<!-- If user not loged in as teacher then redirect to login -->
 ${user == null || user.type != "teacher" ? "<script>location.href = '/logout'</script>" : ""}
+<!-- ==================================================================================== -->
 <div class="header">
 
 	<div class="header-left">
