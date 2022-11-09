@@ -10,12 +10,14 @@
 
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
 
-   <link rel="stylesheet" href="/resources/assets/plugins/bootstrap/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="/resources/assets/plugins/bootstrap/css/bootstrap.min.css">
 
    <link rel="stylesheet" href="/resources/assets/plugins/fontawesome/css/fontawesome.min.css">
    <link rel="stylesheet" href="/resources/assets/plugins/fontawesome/css/all.min.css">
 
-   <link rel="stylesheet" href="/resources/assets/css/style.css">
+   <link rel="stylesheet" href="/resources/assets/css/style.css"> -->
+   
+   <jsp:include page="/resources/views/admin/components/styles.jsp" />
 </head>
 
 <body>
@@ -105,16 +107,14 @@
  
          </div>
 
-         <footer>
-            <p>Copyright © 2020 Dreamguys.</p>
-         </footer>
+		<jsp:include page="/resources/views/admin/components/footer.jsp" />
 
       </div>
 
    </div>
 
 
-   <script src="/resources/assets/js/jquery-3.6.0.min.js"></script>
+<!--    <script src="/resources/assets/js/jquery-3.6.0.min.js"></script>
 
    <script src="/resources/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -125,7 +125,10 @@
    <script src="/resources/assets/plugins/apexchart/apexcharts.min.js"></script>
    <script src="/resources/assets/plugins/apexchart/chart-data.js"></script>
 
-   <script src="/resources/assets/js/script.js"></script>
+   <script src="/resources/assets/js/script.js"></script> -->
+   
+   
+	<jsp:include page="/resources/views/admin/components/scripts.jsp" />
 </body>
 
 </html>

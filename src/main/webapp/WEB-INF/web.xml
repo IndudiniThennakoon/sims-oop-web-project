@@ -35,8 +35,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
       <url-pattern>/teacher/dashboard</url-pattern>
   </servlet-mapping>
    
-
-  
+  <!-- ADMIN ROUTES  -->
    <servlet>
       <servlet-name>admin-dashboard</servlet-name>
       <jsp-file>/resources/views/admin/index.jsp</jsp-file>
